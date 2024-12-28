@@ -6,6 +6,7 @@ import { Query, ID } from "node-appwrite";
 import { parseStringify } from "@/lib/utils";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { avatarPlaceholderUrl } from "@/constants";
 
 const getUserByEmail = async (email: string) => {
   const { databases } = await createAdminClient();
@@ -58,6 +59,7 @@ export const createAccount = async ({
       {
         fullName,
         email,
+        avatar: avatarPlaceholderUrl,
         accountId,
       },
     );
